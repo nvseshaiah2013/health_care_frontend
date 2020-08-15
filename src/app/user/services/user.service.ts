@@ -12,8 +12,8 @@ export class UserService {
     return this.http.post(this.baseurl + 'authenticate', { username , password });
   }
 
-  registerPatient() {
-
+  registerPatient(patient : any) {
+    return this.http.post(`${this.baseurl}registerPatient`, patient);
   }
 
 }
