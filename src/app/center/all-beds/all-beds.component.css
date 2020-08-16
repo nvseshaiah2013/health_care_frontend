@@ -71,8 +71,9 @@
 
 .occupied{
   color : rgb(2, 185, 2);
-  transform: rotateZ(30);
+  transform: rotateX('30');
   border-top: 2px solid green;
   border-bottom: 2px solid green;
   text-transform: uppercase;
+  text-align: center;
 }
