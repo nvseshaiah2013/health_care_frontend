@@ -28,9 +28,10 @@ import { HomeComponent } from './home/home.component';
     JwtModule.forRoot({ 
       config : {
         tokenGetter : () => localStorage.getItem('token'),
-        whitelistedDomains : ['http://localhost:8090'],
-        blacklistedRoutes : ['http://localhost:8090/api/public/authenticate', 'http://localhost:8090/api/public/registerPatient'],
-        skipWhenExpired : false
+        whitelistedDomains : ["localhost:8090"],
+        blacklistedRoutes : ["http://localhost:8090/api/public/authenticate", "http://localhost:8090/api/public/registerPatient"],
+        skipWhenExpired : false,
+        throwNoTokenError : true
     }}),
     ToastrModule.forRoot()
   ],

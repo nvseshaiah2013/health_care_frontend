@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import { AdminRoutingModule } from './admin-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DiagnosticCenterComponent } from './diagnostic-center/diagnostic-center.component';
@@ -12,6 +12,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { AddDiagnosticCenterComponent } from './add-diagnostic-center/add-diagnostic-center.component';
 import { ViewDiagnosticCenterComponent } from './view-diagnostic-center/view-diagnostic-center.component';
 import { DiagnosticCenterService } from './services/diagnostic-center.service';
+import { JwtInterceptor } from '@auth0/angular-jwt';
 
 
 @NgModule({
@@ -34,6 +35,12 @@ import { DiagnosticCenterService } from './services/diagnostic-center.service';
   providers : [
     LoadingService,
     DiagnosticCenterService
+    ,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
   ]
 })
 export class AdminModule { }
