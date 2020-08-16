@@ -63,10 +63,6 @@ export class LoginComponent implements OnInit, OnDestroy {
         },
         (err: HttpErrorResponse) => {
           this.toastService.error('The username or password does not match records', 'Authorization Exception');
-        },
-        () => {
-          this.loaderService.hide();
-        }
-      );
+        });
   }
 }

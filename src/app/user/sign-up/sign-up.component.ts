@@ -64,9 +64,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
         this.router.navigate(['user','login']);
       },
       (error : HttpErrorResponse) => {
-        this.toastr.error(error.error['message'], 'Exception');
-        this.loader.hide();
-      }
+        this.toastr.error(error.error['message'], 'Exception'); }
     );
   }
 
