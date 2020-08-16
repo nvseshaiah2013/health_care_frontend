@@ -1,0 +1,28 @@
+<div class="container">
+    <h2 class="p-4 mx-4"><b>View Diagnostic Centers</b></h2>
+    <style>
+      table, th, td {
+        border: 2px solid black;
+        border-collapse: collapse;
+        text-align: center;
+      }
+    </style>
+    <table class="col-md-10 mx-auto table table-striped table-hover table-bordered mt-4">
+      <tr>
+        <th>CENTER ID</th>
+        <th>CENTER NAME</th>
+        <th>CENTER CONTACT NO</th>
+        <th>CENTER ADDRESS</th>
+        <th>CENTER CONTACT EMAIL</th>
+        <th>CENTER SERVICES OFFERED</th>
+      </tr>
+      <tr *ngFor="let center of diagnosticCenters">
+        <td>{{center.id}}</td>
+        <td>{{center.name}}</td>
+        <td>{{center.contactNo}}</td>
+        <td>{{center.address}}</td>
+        <td>{{center.contactEmail}}</td>
+        <td>{{center.servicesOffered}}</td>
+      </tr>
+    </table>
+  </div>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import {FormsModule} from '@angular/forms';
 import { AdminRoutingModule } from './admin-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -9,6 +9,9 @@ import { DiagnosticCenterComponent } from './diagnostic-center/diagnostic-center
 import { AddTestComponent } from './add-test/add-test.component';
 import { LoadingService } from './services/loading.service';
 import { LoadingComponent } from './loading/loading.component';
+import { AddDiagnosticCenterComponent } from './add-diagnostic-center/add-diagnostic-center.component';
+import { ViewDiagnosticCenterComponent } from './view-diagnostic-center/view-diagnostic-center.component';
+import { DiagnosticCenterService } from './services/diagnostic-center.service';
 
 
 @NgModule({
@@ -16,16 +19,21 @@ import { LoadingComponent } from './loading/loading.component';
     DashboardComponent,
     DiagnosticCenterComponent,
     AddTestComponent,
-    LoadingComponent
+    LoadingComponent,
+    AddDiagnosticCenterComponent,
+    AddDiagnosticCenterComponent,
+    ViewDiagnosticCenterComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers : [
-    LoadingService
+    LoadingService,
+    DiagnosticCenterService
   ]
 })
 export class AdminModule { }

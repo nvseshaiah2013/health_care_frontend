@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AddTestComponent } from './add-test/add-test.component';
-import { DiagnosticCenterComponent } from './diagnostic-center/diagnostic-center.component';
+import { AddDiagnosticCenterComponent } from './add-diagnostic-center/add-diagnostic-center.component';
+import { ViewDiagnosticCenterComponent } from './view-diagnostic-center/view-diagnostic-center.component';
 
 
 const routes: Routes = [
   { path : '', component : DashboardComponent ,children : [
-      { path : 'add-test', component : AddTestComponent },
-      { path : 'diagnostic-centers', component : DiagnosticCenterComponent },
-      { path : '**', component : AddTestComponent }
+      { path : 'addDiagnosticCenter', component : AddDiagnosticCenterComponent },
+      { path : 'viewDiagnosticCenter', component : ViewDiagnosticCenterComponent },
+      { path : '**', component : AddDiagnosticCenterComponent }
   ]}
 ];
 
