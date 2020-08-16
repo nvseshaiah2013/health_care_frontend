@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 
-  showLoad : boolean = false;
+  showLoad : boolean = true;
   loadSubscription : Subscription;
   constructor(
     private loaderService : LoadingService
