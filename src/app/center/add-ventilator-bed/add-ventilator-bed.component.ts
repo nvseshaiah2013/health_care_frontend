@@ -26,7 +26,9 @@ export class AddVentilatorBedComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.loader.hide();
+    setTimeout(() => {
+      this.loader.hide();
+    }, 2000);
     this.ventilatorBedForm = this.formBuilder.group({
       pricePerDay: ['', Validators.compose([Validators.required, Validators.min(2000), Validators.pattern("[0-9]+")])],
       noOfBeds: ['', Validators.compose([Validators.required, Validators.min(1), Validators.pattern("[0-9]+")])],
