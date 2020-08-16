@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 })
 export class AllBedsComponent implements OnInit, OnDestroy {
 
-  bedsList: BedsList;
+  bedsList: BedsList = { generalBeds : [], intensiveCareBeds : [], intensiveCriticalCareBeds : [], ventilatorBeds : [ ]};
   loadSubscription : Subscription;
   generalBedsCount : number = 0;
   icuBedsCount : number = 0;
@@ -43,6 +43,62 @@ export class AllBedsComponent implements OnInit, OnDestroy {
   navigateToSection(section : string) {
     window.location.hash = '';
     window.location.hash = section;
+  }
+
+  removeICUBed(bedId : number ) {
+    this.loader.show();
+    this.centerService.removeBed(bedId).subscribe(
+      data=> {
+        this.bedsList.intensiveCareBeds = this.bedsList.intensiveCareBeds.filter(bed => bed.id !== bedId);
+        this.icuBedsCount = this.bedsList.intensiveCareBeds.length;
+        this.toastr.success(data['message'], data['header']);
+      },
+      (err : HttpErrorResponse) => {
+        this.toastr.error(err.message)
+      }
+    )
+  }
+
+  removeGeneralBed(bedId : number) {
+    this.loader.show();
+    this.centerService.removeBed(bedId).subscribe(
+      data => {
+        this.bedsList.generalBeds = this.bedsList.generalBeds.filter(bed => bed.id !== bedId);
+        this.generalBedsCount = this.bedsList.generalBeds.length;
+        this.toastr.success(data['message'], data['header']);
+      },
+      (err: HttpErrorResponse) => {
+        this.toastr.error(err.message)
+      }
+    )
+  }
+
+  removeICCUBed(bedId : number) {
+    this.loader.show();
+    this.centerService.removeBed(bedId).subscribe(
+      data => {
+        this.bedsList.intensiveCriticalCareBeds = this.bedsList.intensiveCriticalCareBeds.filter(bed => bed.id !== bedId);
+        this.iccuBedsCount = this.bedsList.intensiveCriticalCareBeds.length;
+        this.toastr.success(data['message'], data['header']);
+      },
+      (err: HttpErrorResponse) => {
+        this.toastr.error(err.message)
+      }
+    )
+  }
+
+  removeVentilatorBed(bedId : number ) {
+    this.loader.show();
+    this.centerService.removeBed(bedId).subscribe(
+      data => {
+        this.bedsList.ventilatorBeds = this.bedsList.ventilatorBeds.filter(bed => bed.id !== bedId );
+        this.ventilatorBedsCount = this.bedsList.ventilatorBeds.length;
+        this.toastr.success(data['message'], data['header']);
+      },
+      (err: HttpErrorResponse) => {
+        this.toastr.error(err.message)
+      }
+    )
   }
 
   ngOnDestroy() {

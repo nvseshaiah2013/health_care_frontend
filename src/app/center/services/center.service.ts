@@ -17,4 +17,20 @@ export class CenterService {
     return this.http.get<BedsList>(`${this.baseurl}getBeds`).pipe(finalize(() => this.loader.hide()));
   }
 
+  removeBed(bedId) {
+    return this.http.delete(`${this.baseurl}removeBed/${bedId}`).pipe(finalize(() => this.loader.hide()));
+  }
+
+  addGeneralBed(bed) {
+    return this.http.post(`${this.baseurl}addGeneralBed`, bed).pipe(finalize(() => this.loader.hide()));
+  }
+  addICCUBed(bed) {
+    return this.http.post(`${this.baseurl}addICCUBed`, bed).pipe(finalize(() => this.loader.hide()));
+  }
+  addICUBed(bed) {
+    return this.http.post(`${this.baseurl}addICUBed`, bed).pipe(finalize(() => this.loader.hide()));
+  }
+  addVentilatorBed(bed) {
+    return this.http.post(`${this.baseurl}addVentilatorBed`, bed).pipe(finalize(() => this.loader.hide()));
+  }
 }

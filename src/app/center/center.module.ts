@@ -11,13 +11,23 @@ import { LoadingService } from './services/loading.service';
 import { AllBedsComponent } from './all-beds/all-beds.component';
 import { CenterService } from './services/center.service';
 import { JwtInterceptor } from '@auth0/angular-jwt';
+import { AddVentilatorBedComponent } from './add-ventilator-bed/add-ventilator-bed.component';
+import { AddGeneralBedComponent } from './add-general-bed/add-general-bed.component';
+import { AddIccuBedComponent } from './add-iccu-bed/add-iccu-bed.component';
+import { AddIcuBedComponent } from './add-icu-bed/add-icu-bed.component';
+import { AddBedComponent } from './add-bed/add-bed.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     AllTestsComponent,
     LoadingComponent,
-    AllBedsComponent
+    AllBedsComponent,
+    AddVentilatorBedComponent,
+    AddGeneralBedComponent,
+    AddIccuBedComponent,
+    AddIcuBedComponent,
+    AddBedComponent
   ],
   imports: [
     CommonModule,
