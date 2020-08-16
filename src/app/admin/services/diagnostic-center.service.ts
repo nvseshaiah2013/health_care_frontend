@@ -30,4 +30,18 @@ export class DiagnosticCenterService {
     return this.http.post("http://localhost:8090/api/admin/addDiagnosticCenter",diagnosticCenter);
   }
   
+  deleteDiagnosticCenter(diagnosticCenterId : Number): DiagnosticCenter[]{
+    this.diagnosticCenters = this.diagnosticCenters.filter(diagnosticCenters=>diagnosticCenters.id!=diagnosticCenterId);
+    this.http.delete("http://localhost:8090/api/admin/removeDiagnosticCenter/"+diagnosticCenterId).subscribe(data=>{
+      console.log(data);
+    });
+    return this.diagnosticCenters;
+  }
+
+  updateDiagnosticCenter(diagnosticCenter:DiagnosticCenter):DiagnosticCenter[]{
+    this.http.put("http://localhost:8090/api/admin/updateDiagnosticCenter/"+diagnosticCenter.id,diagnosticCenter).subscribe(data=>{
+      console.log(data);
+    });
+    return this.diagnosticCenters;
+  }
 }
