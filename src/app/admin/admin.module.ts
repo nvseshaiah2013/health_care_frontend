@@ -14,6 +14,8 @@ import { ViewDiagnosticCenterComponent } from './view-diagnostic-center/view-dia
 import { DiagnosticCenterService } from './services/diagnostic-center.service';
 import { JwtInterceptor } from '@auth0/angular-jwt';
 import { TestDetailsComponent } from './test-details/test-details.component';
+import { VacantBedsComponent } from './vacant-beds/vacant-beds.component';
+import { VacantBedsServiceService } from './services/vacant-beds-service.service';
 
 
 @NgModule({
@@ -23,9 +25,9 @@ import { TestDetailsComponent } from './test-details/test-details.component';
     AddTestComponent,
     LoadingComponent,
     AddDiagnosticCenterComponent,
-    AddDiagnosticCenterComponent,
     ViewDiagnosticCenterComponent,
-    TestDetailsComponent
+    TestDetailsComponent,
+    VacantBedsComponent
   ],
   imports: [
     CommonModule,
@@ -38,6 +40,7 @@ import { TestDetailsComponent } from './test-details/test-details.component';
     LoadingService,
     DiagnosticCenterService
     ,
+    VacantBedsServiceService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,

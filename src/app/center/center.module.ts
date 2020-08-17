@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CenterRoutingModule } from './center-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AllTestsComponent } from './all-tests/all-tests.component';
 import { LoadingComponent } from './loading/loading.component';
@@ -16,6 +16,9 @@ import { AddGeneralBedComponent } from './add-general-bed/add-general-bed.compon
 import { AddIccuBedComponent } from './add-iccu-bed/add-iccu-bed.component';
 import { AddIcuBedComponent } from './add-icu-bed/add-icu-bed.component';
 import { AddBedComponent } from './add-bed/add-bed.component';
+import { UpdateTestResultComponent } from './update-test-result/update-test-result.component';
+import { UpdateResultService } from './services/update-result.service';
+
 
 @NgModule({
   declarations: [
@@ -27,21 +30,24 @@ import { AddBedComponent } from './add-bed/add-bed.component';
     AddGeneralBedComponent,
     AddIccuBedComponent,
     AddIcuBedComponent,
-    AddBedComponent
+    AddBedComponent,
+    UpdateTestResultComponent
   ],
   imports: [
-    CommonModule,
+    CommonModule, 
     CenterRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers : [
     LoadingService,
     CenterService,
+    UpdateResultService,
     {
-      provide: HTTP_INTERCEPTORS,
-      useClass: JwtInterceptor,
-      multi: true
+      provide : HTTP_INTERCEPTORS,
+      useClass : JwtInterceptor,
+      multi :true
     }
   ]
 })
