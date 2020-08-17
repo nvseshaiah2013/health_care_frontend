@@ -31,4 +31,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterContentChecke
   ngOnDestroy() {
     this.loadSubscription.unsubscribe();
   }
+
+  logOut(){
+    localStorage.removeItem('token');
+  }
 }
