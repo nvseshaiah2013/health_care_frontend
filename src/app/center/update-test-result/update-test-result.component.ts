@@ -19,23 +19,27 @@ export class UpdateTestResultComponent implements OnInit {
   errorMsg: string;
 
   ngOnInit(): void {
-    console.log("errorMsg "+this.errorMsg);
     this.conditionType=['Below Normal','Normal','Above Normal'];
     console.log(this.conditionType);
     this.updateResultForm = this.formBuilder.group({
-      appointmentId : ['', Validators.compose([Validators.required, Validators.pattern("[1-9]*")])],
+      appointmentId : [0, Validators.compose([Validators.required, Validators.pattern("[1-9][0-9]+")])],
       condition     : ['', Validators.compose([Validators.required])],
-      testReading   : ['',Validators.compose([Validators.required,Validators.pattern("[1-9]*")])]
+      testReading   : [0,Validators.compose([Validators.required,Validators.pattern("[1-9][0-9]+")])]
 
     });
   }
 
   addTestResult(){
+    if(this.updateResultForm.invalid){
+      return;
+    }
     console.log(this.updateResultForm.value);
-    this.updateResultService.addTestResult(this.updateResultForm.value).subscribe(data=>{
+    this.updateResultService.addTestResult(this.updateResultForm.controls.appointmentId.value,
+        this.updateResultForm.controls.condition.value,
+        this.updateResultForm.controls.testReading.value
+      ).subscribe(data=>{
       this.msg="Successfully Added";
       this.errorMsg=undefined;
-      // console.log(error);
     },error=>{
       this.errorMsg=error.error.message;
       this.msg=undefined;

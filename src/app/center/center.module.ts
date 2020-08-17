@@ -10,6 +10,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { LoadingService } from './services/loading.service';
 import { UpdateTestResultComponent } from './update-test-result/update-test-result.component';
 import { JwtInterceptor } from '@auth0/angular-jwt';
+import { UpdateResultService } from './services/update-result.service';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { JwtInterceptor } from '@auth0/angular-jwt';
   ],
   providers : [
     LoadingService,
+    UpdateResultService,
     {
       provide : HTTP_INTERCEPTORS,
       useClass : JwtInterceptor,
