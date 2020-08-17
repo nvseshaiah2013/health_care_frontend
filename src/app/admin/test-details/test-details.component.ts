@@ -45,7 +45,6 @@ export class TestDetailsComponent implements OnInit {
     );
 
   }
-
   editTest(i:number){
   this.flag=true;
   this.editForm.setValue(this.tests[i]);
@@ -85,4 +84,6 @@ export class TestDetailsComponent implements OnInit {
       console.log(err.stack);
     })
   }
+ 
+
 }
