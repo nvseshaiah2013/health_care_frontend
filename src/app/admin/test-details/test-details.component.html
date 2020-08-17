@@ -1,0 +1,32 @@
+<div class="container mt-5">
+<div class="ml-3 mr-3 row heading">
+    <div class="mt-1 mb-1 col-lg-12 col-md-12">
+    <span><h4 class="text-center"><i class="fa fa-medkit"></i>&nbsp;Test Details</h4></span>
+</div>
+</div>
+<div class="mt-3 ml-5 mr-5">
+    <div *ngFor="let test of tests">
+           <div class="row TestDetail">
+            <div class="offset-lg-1 offset-md-1 col-lg-5 col-md-5">
+                <div class="row">
+                <h4 class="col-lg-12 col-md-12 TestName">{{test.testName}}</h4></div>
+                <div class="row">
+                <p>{{test.testName}} Price : {{test.testPrice}}</p>
+            </div>
+                <div class="row">
+                    <p>{{test.testName}} Normal Value : {{test.normalValue}}&nbsp;{{test.units}}</p>
+                </div>
+            </div> 
+            
+            <div class="mt-5 col-lg-5 col-md-5">
+                <p>wants to update {{test.testName}} details</p>
+                <div class="row">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#editTest" (click)="editTest()">Edit</button>
+                </div>
+            </div>
+        </div>
+        
+       
+    </div>
+</div>
+</div>

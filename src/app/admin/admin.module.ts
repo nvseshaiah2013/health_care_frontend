@@ -13,6 +13,7 @@ import { AddDiagnosticCenterComponent } from './add-diagnostic-center/add-diagno
 import { ViewDiagnosticCenterComponent } from './view-diagnostic-center/view-diagnostic-center.component';
 import { DiagnosticCenterService } from './services/diagnostic-center.service';
 import { JwtInterceptor } from '@auth0/angular-jwt';
+import { TestDetailsComponent } from './test-details/test-details.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { JwtInterceptor } from '@auth0/angular-jwt';
     LoadingComponent,
     AddDiagnosticCenterComponent,
     AddDiagnosticCenterComponent,
-    ViewDiagnosticCenterComponent
+    ViewDiagnosticCenterComponent,
+    TestDetailsComponent
   ],
   imports: [
     CommonModule,
