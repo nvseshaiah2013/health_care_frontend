@@ -14,6 +14,9 @@ import { ViewDiagnosticCenterComponent } from './view-diagnostic-center/view-dia
 import { DiagnosticCenterService } from './services/diagnostic-center.service';
 import { JwtInterceptor } from '@auth0/angular-jwt';
 import { TestDetailsComponent } from './test-details/test-details.component';
+import { AllDiagnosticCenterComponent } from './all-diagnostic-center/all-diagnostic-center.component';
+import { AddTestToCenterComponent } from './add-test-to-center/add-test-to-center.component';
+import { RemoveTestFromCenterComponent } from './remove-test-from-center/remove-test-from-center.component';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import { TestDetailsComponent } from './test-details/test-details.component';
     AddDiagnosticCenterComponent,
     AddDiagnosticCenterComponent,
     ViewDiagnosticCenterComponent,
-    TestDetailsComponent
+    TestDetailsComponent,
+    AllDiagnosticCenterComponent,
+    AddTestToCenterComponent,
+    RemoveTestFromCenterComponent
   ],
   imports: [
     CommonModule,
