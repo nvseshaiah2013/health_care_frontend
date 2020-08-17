@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "health-care-frontend": {
@@ -125,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "health-care-frontend"
+    }
+  },
+  "defaultProject": "health-care-frontend",
+  "cli": {
+    "analytics": "b56c1601-9f75-4fb7-9556-7df2021d6526"
+  }
 }

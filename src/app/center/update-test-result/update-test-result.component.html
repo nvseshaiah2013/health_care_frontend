@@ -1,0 +1,50 @@
+<div>
+  <h2 class="text-center">Update Test Result</h2>
+  <hr width="120"> 
+  <br>
+  <Section class="col-md-6 mx-auto mt-3">
+    <div class="alert alert-success" *ngIf="msg !=undefined">{{msg}}</div>
+    <div class="alert alert-danger" *ngIf="errorMsg !=undefined">{{errorMsg}}</div>
+  </Section>
+
+  <div class="d-flex justify-content-center">
+       <form [formGroup]="updateResultForm" (ngSubmit)="addTestResult()">
+            
+    
+            <div><input type="text" class="form-control" formControlName="appointmentId" placeholder="appointment Id"/></div>
+            <div class="alert alert-danger" *ngIf="updateResultForm.controls.appointmentId.errors">
+              <div *ngIf="updateResultForm.controls.appointmentId.errors.required" style="color: red;"> Appointment Id is required</div>
+              <div *ngIf="updateResultForm.controls.appointmentId.errors.pattern" style="color: red;"> Appointment Id be numeric</div>
+            </div>
+            <br>
+
+
+            <select class="form-control" formControlName="condition" >
+              <option value="" disabled> Select condition</option>
+              <option *ngFor="let conditionP of conditionType" value="{{conditionP}}">{{conditionP}}</option>
+          </select>
+
+          <div class="alert alert-danger" *ngIf="updateResultForm.controls.condition.errors">
+           
+            <div *ngIf="updateResultForm.controls.appointmentId.errors.required" style="color: red;"> * Patient Condition is required</div>
+          </div>
+          <br>
+
+            <div><input type="text" formControlName="testReading" class="form-control"  placeholder="Test Reading"/></div>
+            <div class="alert alert-danger" *ngIf="updateResultForm.controls.testReading.errors">
+              
+              <div *ngIf="updateResultForm.controls.testReading.errors.required" style="color: red;">Update Test Reading</div>
+              <div *ngIf="updateResultForm.controls.testReading.errors.pattern" style="color: red;"> Test Reading should be numeric</div>
+            </div>
+
+            <br>
+
+            <div class="mt-2 text-center"><input type="Submit" value="Upadate Test Result" class="btn btn-warning mt-2 text-center"/></div>
+    
+          </form>
+
+
+  </div>
+ 
+
+</div>
