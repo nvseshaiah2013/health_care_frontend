@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingService } from '../services/loading.service';
 
 @Component({
   selector: 'app-all-tests',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllTestsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private loader : LoadingService
+  ) { }
 
   ngOnInit(): void {
+    this.loader.hide();
   }
 
 }

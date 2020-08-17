@@ -26,7 +26,9 @@ export class AddGeneralBedComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.loader.hide();
+    setTimeout(() => {
+      this.loader.hide();
+    }, 2000);
     this.generalBedForm = this.formBuilder.group({
       pricePerDay: ['', Validators.compose([Validators.required, Validators.min(500), Validators.pattern("[0-9]+")])],
       noOfBeds: ['', Validators.compose([Validators.required, Validators.min(1), Validators.pattern("[0-9]+")])],

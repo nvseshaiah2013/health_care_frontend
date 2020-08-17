@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterContentChecked, ChangeDetectorRef } from '@angular/core';
 import { LoadingService } from '../services/loading.service';
 import { Subscription } from 'rxjs';
 
@@ -7,13 +7,13 @@ import { Subscription } from 'rxjs';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit, OnDestroy {
+export class DashboardComponent implements OnInit, OnDestroy, AfterContentChecked {
 
   showLoad : boolean = true;
   loadSubscription : Subscription;
   constructor(
     private loaderService : LoadingService,
-    private cd : ChangeDetectorRef
+    private cdr : ChangeDetectorRef
   ) { }
 
 
@@ -24,11 +24,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngAfterViewInit() {
-    this.cd.detectChanges();
+  ngAfterContentChecked(){
+    this.cdr.detectChanges();
   }
 
   ngOnDestroy() {
     this.loadSubscription.unsubscribe();
+  }
+
+  logOut(){
+    localStorage.removeItem('token');
   }
 }
