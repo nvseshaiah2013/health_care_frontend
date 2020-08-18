@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DiagnosticCenterSignUpRequest } from 'src/app/diagnostic-center-sign-up-request';
+import { DiagnosticCenterSignUpRequest } from 'src/app/admin/models/diagnostic-center-sign-up-request';
 import { DiagnosticCenterService } from '../services/diagnostic-center.service';
-import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-diagnostic-center',
@@ -12,7 +13,9 @@ export class AddDiagnosticCenterComponent implements OnInit {
 
   diagnosticCenter: DiagnosticCenterSignUpRequest = new DiagnosticCenterSignUpRequest();
 
-  constructor(private diagnosticCenterService:DiagnosticCenterService, private route:Router) { }
+  constructor(private diagnosticCenterService:DiagnosticCenterService, 
+    private toastService : ToastrService
+    ) { }
 
   ngOnInit(): void {
   }
@@ -22,9 +25,13 @@ export class AddDiagnosticCenterComponent implements OnInit {
     console.log("add center");
 
     this.diagnosticCenterService.insertDiagnosticCenter(this.diagnosticCenter).subscribe(data=>
-      {this.diagnosticCenter = data});
-    
-      this.route.navigateByUrl("/admin/viewDiagnosticCenter");
+      {
+        this.toastService.success('Successful', "Add Diagnostic Center");
+        this.diagnosticCenter = data
+      },
+      (err: HttpErrorResponse) => {
+        this.toastService.error('Invalid data(User Name already present)', 'Add Diagnostic Center Exception');
+      });
   }
 
 }

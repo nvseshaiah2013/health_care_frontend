@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { DiagnosticCenter } from 'src/app/diagnostic-center';
+import { DiagnosticCenter } from '../models/DiagnosticCenter';
 import { Observable } from 'rxjs';
-import { DiagnosticCenterSignUpRequest } from 'src/app/diagnostic-center-sign-up-request';
+import { DiagnosticCenterSignUpRequest } from 'src/app/admin/models/diagnostic-center-sign-up-request';
+import { ToastrService } from 'ngx-toastr';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ export class DiagnosticCenterService {
 
   private diagnosticCenters : DiagnosticCenter[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private toastService : ToastrService) { }
 
   setDiagnosticCenters(diagnosticCenters:DiagnosticCenter[]):void{
     this.diagnosticCenters = diagnosticCenters;
@@ -32,8 +34,13 @@ export class DiagnosticCenterService {
   
   deleteDiagnosticCenter(diagnosticCenterId : Number): DiagnosticCenter[]{
     this.diagnosticCenters = this.diagnosticCenters.filter(diagnosticCenters=>diagnosticCenters.id!=diagnosticCenterId);
-    this.http.delete("http://localhost:8090/api/admin/removeDiagnosticCenter/"+diagnosticCenterId).subscribe(data=>{
+    this.http.delete("http://localhost:8090/api/admin/removeDiagnosticCenter/"+diagnosticCenterId).subscribe(data=>
+    {
+      this.toastService.success('Successful', "Delete Diagnostic Center");
       console.log(data);
+    },
+    (err: HttpErrorResponse) => {
+      this.toastService.error('Diagnostic center not present', 'Delete Diagnostic Center Exception');
     });
     return this.diagnosticCenters;
   }
