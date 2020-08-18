@@ -17,6 +17,9 @@ import { TestDetailsComponent } from './test-details/test-details.component';
 import { WaitingPatientsComponent } from './waiting-patients/waiting-patients.component';
 import { WaitingPatientsCenterComponent } from './waiting-patients-center/waiting-patients-center.component';
 import { WaitingPatientService } from './services/waiting-patient.service';
+import { AllDiagnosticCenterComponent } from './all-diagnostic-center/all-diagnostic-center.component';
+import { AddTestToCenterComponent } from './add-test-to-center/add-test-to-center.component';
+import { RemoveTestFromCenterComponent } from './remove-test-from-center/remove-test-from-center.component';
 
 
 @NgModule({
@@ -26,11 +29,13 @@ import { WaitingPatientService } from './services/waiting-patient.service';
     AddTestComponent,
     LoadingComponent,
     AddDiagnosticCenterComponent,
-    AddDiagnosticCenterComponent,
     ViewDiagnosticCenterComponent,
     TestDetailsComponent,
     WaitingPatientsComponent,
-    WaitingPatientsCenterComponent
+    WaitingPatientsCenterComponent,
+    AllDiagnosticCenterComponent,
+    AddTestToCenterComponent,
+    RemoveTestFromCenterComponent
   ],
   imports: [
     CommonModule,
