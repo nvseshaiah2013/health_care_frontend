@@ -18,6 +18,9 @@ import { AddIcuBedComponent } from './add-icu-bed/add-icu-bed.component';
 import { AddBedComponent } from './add-bed/add-bed.component';
 import { UpdateTestResultComponent } from './update-test-result/update-test-result.component';
 import { UpdateResultService } from './services/update-result.service';
+import { BedService } from './services/bed.service';
+import { AdmitPatientComponent } from './admit-patient/admit-patient.component';
+import { DischargePatientComponent } from './discharge-patient/discharge-patient.component';
 
 
 @NgModule({
@@ -31,7 +34,9 @@ import { UpdateResultService } from './services/update-result.service';
     AddIccuBedComponent,
     AddIcuBedComponent,
     AddBedComponent,
-    UpdateTestResultComponent
+    UpdateTestResultComponent,
+    AdmitPatientComponent,
+    DischargePatientComponent
   ],
   imports: [
     CommonModule, 
@@ -44,6 +49,7 @@ import { UpdateResultService } from './services/update-result.service';
     LoadingService,
     CenterService,
     UpdateResultService,
+    BedService,
     {
       provide : HTTP_INTERCEPTORS,
       useClass : JwtInterceptor,
