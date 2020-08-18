@@ -5,11 +5,7 @@ import { BedsList } from 'src/app/center/models/beds-list.model';
 import { Appointment } from '../models/appointment.model';
 import { Bed } from '../models/bed.model';
 
-@Injectable({
-  providedIn: 'root'
-})
-
-
+@Injectable()
 export class PatientService {
 
   baseurl : string ='http://localhost:8090/api/patient/'  
