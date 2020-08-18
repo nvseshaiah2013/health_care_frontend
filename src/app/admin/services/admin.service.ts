@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DiagnosticTest } from '../models/DiagnosticTest';
 import { DiagnosticCenter } from '../models/DiagnosticCenter';
+import { finalize } from 'rxjs/operators';
 
 
 @Injectable({
@@ -29,6 +30,15 @@ export class AdminService {
     return this.http.get<DiagnosticTest[]>(this.baseurl+"getTestsOfADiagnosticCenter/"+id);
   }
   getDiagnosticCenterById(id:number){
-    return this.http.get<DiagnosticCenter>(this.baseurl+"");
+    return this.http.get<DiagnosticCenter>(this.baseurl+"getDiagnosticCenterById/"+id);
+  }
+  getTestsOfADiagnosticCenter(id:number){
+    return this.http.get<DiagnosticTest[]>(this.baseurl+"getTestsOfADiagnosticCenter/"+id);
+  }
+  removeTestFromCenter(test:DiagnosticTest,id:number){
+    return this.http.put<DiagnosticTest[]>(this.baseurl+"removeTestFromDiagnosticCenter/"+id,test);
+  }
+  addTestToCenter(test:DiagnosticTest,id:number){
+    return this.http.put<DiagnosticTest[]>(this.baseurl+"addTestAtTheDiagnosticCenter/"+id,test);
   }
 }
