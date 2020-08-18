@@ -1,0 +1,8 @@
+<div class="dropdown">
+    <button class="dropbtn">Select Appointment</button>
+    <div class="dropdown-content">
+        <span class="content col-sm-4" *ngFor="let appointment of appointments;let i = index">
+        <div (click)="viewBedStatus(appointment.id)">{{appointment.id}}</div>    
+        </span>
+    </div>
+  </div>

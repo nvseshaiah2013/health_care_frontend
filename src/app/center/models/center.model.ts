@@ -1,4 +1,6 @@
 export class DiagnosticCenter {
+    
+    id : number;
     name : string;
     contactNo : string;
     address : string;

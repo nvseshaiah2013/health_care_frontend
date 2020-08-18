@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DiagnosticCenter } from 'src/app/diagnostic-center';
+import { DiagnosticCenter } from '../models/DiagnosticCenter';
 import { DiagnosticCenterService } from '../services/diagnostic-center.service';
 
 @Component({
