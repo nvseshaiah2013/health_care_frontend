@@ -9,13 +9,21 @@ import { AppointmentsComponent } from './appointments/appointments.component';
 import { LoadingComponent } from './loading/loading.component';
 import { LoadingService } from './services/loading.service';
 import { JwtInterceptor } from '@auth0/angular-jwt';
+import { VacantBedComponent } from './vacant-bed/vacant-bed.component';
+import { MyBedComponent } from './my-bed/my-bed.component';
+import { AllTestComponent } from './all-test/all-test.component';
+import { DiagCenterComponent } from './diag-center/diag-center.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent, 
     AppointmentsComponent,
-    LoadingComponent
+    LoadingComponent,
+    VacantBedComponent,
+    MyBedComponent,
+    AllTestComponent,
+    DiagCenterComponent
   ],
   imports: [
     CommonModule,

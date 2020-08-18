@@ -16,6 +16,9 @@ import { JwtInterceptor } from '@auth0/angular-jwt';
 import { TestDetailsComponent } from './test-details/test-details.component';
 import { VacantBedsComponent } from './vacant-beds/vacant-beds.component';
 import { VacantBedsServiceService } from './services/vacant-beds-service.service';
+import { WaitingPatientsComponent } from './waiting-patients/waiting-patients.component';
+import { WaitingPatientsCenterComponent } from './waiting-patients-center/waiting-patients-center.component';
+import { WaitingPatientService } from './services/waiting-patient.service';
 import { AllDiagnosticCenterComponent } from './all-diagnostic-center/all-diagnostic-center.component';
 import { AddTestToCenterComponent } from './add-test-to-center/add-test-to-center.component';
 import { RemoveTestFromCenterComponent } from './remove-test-from-center/remove-test-from-center.component';
@@ -31,6 +34,8 @@ import { RemoveTestFromCenterComponent } from './remove-test-from-center/remove-
     ViewDiagnosticCenterComponent,
     TestDetailsComponent,
     VacantBedsComponent,
+    WaitingPatientsComponent,
+    WaitingPatientsCenterComponent,
     AllDiagnosticCenterComponent,
     AddTestToCenterComponent,
     RemoveTestFromCenterComponent
@@ -44,7 +49,8 @@ import { RemoveTestFromCenterComponent } from './remove-test-from-center/remove-
   ],
   providers : [
     LoadingService,
-    DiagnosticCenterService
+    DiagnosticCenterService,
+    WaitingPatientService
     ,
     VacantBedsServiceService,
     {
