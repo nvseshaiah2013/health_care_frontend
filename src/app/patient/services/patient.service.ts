@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { BedsList } from 'src/app/center/models/beds-list.model';
 import { Appointment } from '../models/appointment.model';
 import { Bed } from '../models/bed.model';
+import { DiagnosticTest } from 'src/app/admin/models/DiagnosticTest';
+import { TestResult } from '../models/test-result.model';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +32,12 @@ export class PatientService {
 
   getBedStatus(appointmentId:number){
     return this.http.get<Bed>(`${this.baseurl}bedStatus/${appointmentId}`)
+  }
+  getAllTest(){
+    return this.http.get<DiagnosticTest>(`${this.baseurl}allTest`);
+  }
+  viewTestResultById(testId:any){
+    return this.http.get<TestResult>(`${this.baseurl}testResult/${testId}`);
   }
 
   setId( id:number)

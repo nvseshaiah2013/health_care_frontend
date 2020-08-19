@@ -6,6 +6,8 @@ import { VacantBedComponent } from './vacant-bed/vacant-bed.component';
 import { MyBedComponent } from './my-bed/my-bed.component';
 import { AllTestComponent } from './all-test/all-test.component';
 import { DiagCenterComponent } from './diag-center/diag-center.component';
+import { TestResultComponent } from './test-result/test-result.component';
+import { ViewBedComponent } from './view-bed/view-bed.component';
 
 
 const routes: Routes = [
@@ -15,8 +17,10 @@ const routes: Routes = [
       {path:'diagCenter',component:DiagCenterComponent , children:[{path:'vacantbeds',component:VacantBedComponent}]
       },
       {path:'mybed',component:MyBedComponent},
-      {path:'testResult',component:AllTestComponent},
-      {path:'vacantbeds',component:VacantBedComponent}
+      {path:'allTest',component:AllTestComponent, children:[{path:'testResult', component:TestResultComponent}]},
+      {path:'vacantbeds',component:VacantBedComponent},
+      {path:'testResult',component:TestResultComponent},
+      {path:'bed',component:ViewBedComponent}
     ]
   }
 ];

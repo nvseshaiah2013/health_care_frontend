@@ -13,6 +13,8 @@ import { VacantBedComponent } from './vacant-bed/vacant-bed.component';
 import { MyBedComponent } from './my-bed/my-bed.component';
 import { AllTestComponent } from './all-test/all-test.component';
 import { DiagCenterComponent } from './diag-center/diag-center.component';
+import { TestResultComponent } from './test-result/test-result.component';
+import { ViewBedComponent } from './view-bed/view-bed.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { DiagCenterComponent } from './diag-center/diag-center.component';
     VacantBedComponent,
     MyBedComponent,
     AllTestComponent,
-    DiagCenterComponent
+    DiagCenterComponent,
+    TestResultComponent,
+    ViewBedComponent
   ],
   imports: [
     CommonModule,
