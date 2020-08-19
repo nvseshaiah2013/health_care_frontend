@@ -12,5 +12,6 @@ export class Appointment {
     diagnosticTest : DiagnosticTest;
     patient : Patient;
     testResult : TestResult;
-    diagnosticCenter : DiagnosticCenter
+    diagnosticCenter : DiagnosticCenter;
+
 }

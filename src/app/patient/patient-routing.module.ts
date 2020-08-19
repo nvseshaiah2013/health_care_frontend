@@ -9,6 +9,8 @@ import { DiagCenterComponent } from './diag-center/diag-center.component';
 import { MakeAppointmentComponent } from './make-appointment/make-appointment.component';
 import { ViewAllAppointmentComponent } from './view-all-appointment/view-all-appointment.component';
 import { ViewMyAppointmentComponent } from './view-my-appointment/view-my-appointment.component';
+import { TestResultComponent } from './test-result/test-result.component';
+import { ViewBedComponent } from './view-bed/view-bed.component';
 
 
 const routes: Routes = [
@@ -22,8 +24,10 @@ const routes: Routes = [
       { path: 'viewallappointments', component: ViewAllAppointmentComponent },
       { path: 'viewmyappointment', component: ViewMyAppointmentComponent },
       {path:'mybed',component:MyBedComponent},
-      {path:'testResult',component:AllTestComponent},
-      {path:'vacantbeds',component:VacantBedComponent}
+      {path:'allTest',component:AllTestComponent, children:[{path:'testResult', component:TestResultComponent}]},
+      {path:'vacantbeds',component:VacantBedComponent},
+      {path:'testResult',component:TestResultComponent},
+      {path:'bed',component:ViewBedComponent}
     ]
   }
 ];

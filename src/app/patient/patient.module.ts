@@ -18,6 +18,8 @@ import { PatientService } from './services/patient.service';
 import { ViewAllAppointmentComponent } from './view-all-appointment/view-all-appointment.component';
 import { ViewMyAppointmentComponent } from './view-my-appointment/view-my-appointment.component';
 import { MakeAppointmentComponent } from './make-appointment/make-appointment.component';
+import { TestResultComponent } from './test-result/test-result.component';
+import { ViewBedComponent } from './view-bed/view-bed.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { MakeAppointmentComponent } from './make-appointment/make-appointment.co
     DiagCenterComponent,
     ViewAllAppointmentComponent,
     ViewMyAppointmentComponent,
-    MakeAppointmentComponent
+    MakeAppointmentComponent,
+    TestResultComponent,
+    ViewBedComponent
   ],
   imports: [
     CommonModule,

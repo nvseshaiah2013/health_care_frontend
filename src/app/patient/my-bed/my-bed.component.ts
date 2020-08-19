@@ -17,7 +17,6 @@ export class MyBedComponent implements OnInit {
   constructor(private patientService:PatientService,
     private toastr : ToastrService
     ) { }
-
   ngOnInit(): void {
     this.patientService.getAllAppointments().subscribe(data=>{
     this.appointments=data;
@@ -27,14 +26,8 @@ export class MyBedComponent implements OnInit {
     )
   }
 
-  viewBedStatus(appointmetnId:number){
-    this.patientService.getBedStatus(appointmetnId).subscribe(data=>{
-      this.bed=data;
-    },err=>{
-      console.log(err);
-      this.toastr.error(err.error['message']);
-    })
-
+  viewBedStatus(appointmetnId: number) {
+    this.patientService.setId(appointmetnId);
   }
 
 }
