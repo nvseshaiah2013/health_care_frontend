@@ -10,6 +10,7 @@ import { VacantBedsComponent } from './vacant-beds/vacant-beds.component';
 import { AllDiagnosticCenterComponent } from './all-diagnostic-center/all-diagnostic-center.component';
 import { AddTestToCenterComponent } from './add-test-to-center/add-test-to-center.component';
 import { RemoveTestFromCenterComponent } from './remove-test-from-center/remove-test-from-center.component';
+import { WaitingPatientsComponent } from './waiting-patients/waiting-patients.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: 'allDiagnosticCenter',component:AllDiagnosticCenterComponent},
       { path: 'addTestToCenter/:id',component:AddTestToCenterComponent},
       { path: 'removeTestFromCenter/:id',component:RemoveTestFromCenterComponent},
+      { path : 'waiting-patients', component : WaitingPatientsComponent },
       { path : '**', component : AddDiagnosticCenterComponent }
   ]}
 ];
