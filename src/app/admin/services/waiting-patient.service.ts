@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AllocateBedRequest } from '../models/allocate-bed-request.model';
+import { WaitingPatient } from '../models/waiting-patient.model';
 
 @Injectable()
 export class WaitingPatientService {
@@ -9,7 +10,7 @@ export class WaitingPatientService {
   constructor(private http: HttpClient) { }
 
   getWaitingPatients(){
-    return this.http.get(`${this.baseurl}getWaitingPatients`);
+    return this.http.get<WaitingPatient[]>(`${this.baseurl}getWaitingPatients`);
   }
 
   allocateBeds(allocationRequest : AllocateBedRequest){

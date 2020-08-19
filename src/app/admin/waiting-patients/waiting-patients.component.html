@@ -1,1 +1,6 @@
-<p>waiting-patients works!</p>
+<div class="container mt-5">
+    <div *ngFor="let patient of waitingPatients;">
+        {{ patient | json }}
+        <hr>
+    </div>
+</div>

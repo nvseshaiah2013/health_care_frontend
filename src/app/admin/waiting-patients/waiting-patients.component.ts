@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { WaitingPatientService } from '../services/waiting-patient.service';
+import { WaitingPatient } from '../models/waiting-patient.model';
 
 @Component({
   selector: 'app-waiting-patients',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WaitingPatientsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private service : WaitingPatientService) { }
+  waitingPatients : WaitingPatient[] = [];
   ngOnInit(): void {
+    this.service.getWaitingPatients()
+      .subscribe(data => {
+            this.waitingPatients = data;
+      });
   }
 
 }
