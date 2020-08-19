@@ -4,4 +4,5 @@ export class WaitingPatient{
     id : number;
     appointment : Appointment;
     type : string;
+    requestedOn : Date;
 }
