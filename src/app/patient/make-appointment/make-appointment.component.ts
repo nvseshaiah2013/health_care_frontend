@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AppointmentsComponent } from '../appointments/appointments.component';
-import {Appointment} from '../models/appointment.model';
-import {AppointmentService} from '../services/appointment.service';
-import {DiagnosticTest} from '../models/diagnostic-test.model';
-import { TestResult } from '../models/test-result.model';
+import { AppointmentService } from '../services/appointment.service';
+import { MakeAppointment } from '../models/make-appointment-request.model';
+import { DiagnosticTest } from '../models/diagnostic-test.model';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-make-appointment',
   templateUrl: './make-appointment.component.html',
@@ -11,47 +11,46 @@ import { TestResult } from '../models/test-result.model';
 })
 export class MakeAppointmentComponent implements OnInit {
 
-  title='makeappointment'
-  appointment:Appointment=new Appointment();
-  diagnosticTest:DiagnosticTest=new DiagnosticTest();
-  
-  
-  mapp:number=0;
-  vmyapp:number=0;
-  vallapp:number=0;
+  title = 'makeappointment'
+  appointment: MakeAppointment = new MakeAppointment();
+  diagnosticTest: DiagnosticTest = new DiagnosticTest();
 
-  // for(var i=0;i<testid.length)
+  diagtestid: number;
+  diagcenterid: number;
+  mapp: number = 0;
+  vmyapp: number = 0;
+  vallapp: number = 0;
 
-  constructor(private appointmentService:AppointmentService) { }
+  tests: DiagnosticTest[] = [];
 
-  makeapp()
-  {
-    this.mapp=1;
+  constructor(private appointmentService: AppointmentService, private toastrService: ToastrService) { }
+
+  makeapp() {
+    this.mapp = 1;
   }
-  viewmyapp()
-  {
-    this.vmyapp=1;
+  viewmyapp() {
+    this.vmyapp = 1;
   }
-  viewallapp()
-  {
-    this.vallapp=1;
+  viewallapp() {
+    this.vallapp = 1;
   }
   ngOnInit(): void {
   }
-  makeAppointment():void{
-    this.appointmentService.makeAppointment(this.appointment).subscribe(data=>
-      {
-        alert("Appointment Booked Successfully");
-      },
-      error=>
-      {
-        console.log("error occured",error);
+  makeAppointment(): void {
+    this.appointmentService.makeAppointment(this.appointment).subscribe(data => {
+      // alert("Appointment Booked Successfully");
+      this.toastrService.success('Successfull', "Add Appointment");
+    },
+      error => {
+        console.log("error occured", error);
+        this.toastrService.error('Invalid Data', 'Add Appointment Exception');
       }
     );
-   }
-   viewByTestName(){
+  }
+  viewByTestName() {
+    this.appointmentService.viewAllTest(this.appointment.diagnosticCenterId).subscribe(data => this.tests = data);
 
-   }
+  }
 
 }
 

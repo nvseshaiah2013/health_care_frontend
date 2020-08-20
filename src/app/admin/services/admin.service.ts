@@ -2,12 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DiagnosticTest } from '../models/DiagnosticTest';
 import { DiagnosticCenter } from '../models/DiagnosticCenter';
-import { finalize } from 'rxjs/operators';
+import { Appointment } from '../models/appointment-model';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AdminService {
 
   baseurl : string = "http://localhost:8090/api/admin/"
@@ -40,5 +38,13 @@ export class AdminService {
   }
   addTestToCenter(test:DiagnosticTest,id:number){
     return this.http.put<DiagnosticTest[]>(this.baseurl+"addTestAtTheDiagnosticCenter/"+id,test);
+  }
+
+  getAppointments(id, test, status) {
+    return this.http.get<Appointment[]>(this.baseurl + "getappointment/" + id + "/" + test + "/" + status);
+  }
+
+  processAppointments(details: any) {
+    return this.http.post(this.baseurl + "processappointment", details, { responseType: 'text' });
   }
 }

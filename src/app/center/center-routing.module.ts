@@ -18,6 +18,7 @@ const routes: Routes = [
       { path : 'Updatetestresult',component:UpdateTestResultComponent},
       { path: 'admitpatient', component: AdmitPatientComponent },
       { path: 'dischargepatient', component: DischargePatientComponent },
+      { path : '', pathMatch : 'full', redirectTo : '/center/all-beds'},
       { path : '**', component : AllTestsComponent}
     ]
   }

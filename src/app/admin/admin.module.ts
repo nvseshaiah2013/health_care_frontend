@@ -22,6 +22,8 @@ import { WaitingPatientService } from './services/waiting-patient.service';
 import { AllDiagnosticCenterComponent } from './all-diagnostic-center/all-diagnostic-center.component';
 import { AddTestToCenterComponent } from './add-test-to-center/add-test-to-center.component';
 import { RemoveTestFromCenterComponent } from './remove-test-from-center/remove-test-from-center.component';
+import { ProcessAppointmentComponent } from './process-appointment/process-appointment.component';
+import { AdminService } from './services/admin.service';
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import { RemoveTestFromCenterComponent } from './remove-test-from-center/remove-
     WaitingPatientsCenterComponent,
     AllDiagnosticCenterComponent,
     AddTestToCenterComponent,
-    RemoveTestFromCenterComponent
+    RemoveTestFromCenterComponent,
+    ProcessAppointmentComponent
   ],
   imports: [
     CommonModule,
@@ -53,6 +56,7 @@ import { RemoveTestFromCenterComponent } from './remove-test-from-center/remove-
     WaitingPatientService
     ,
     VacantBedsServiceService,
+    AdminService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,

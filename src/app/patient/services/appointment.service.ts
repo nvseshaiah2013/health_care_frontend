@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Appointment} from '../models/appointment.model';
 import { Observable } from 'rxjs';
+import { MakeAppointment } from '../models/make-appointment-request.model';
+import { DiagnosticTest } from '../models/DiagnosticTest';
 @Injectable()
 export class AppointmentService {
 
@@ -14,7 +16,7 @@ export class AppointmentService {
 
   ) { }
 
-  makeAppointment(appointment:Appointment):Observable<any>{
+  makeAppointment(appointment: MakeAppointment): Observable<any> {
     return this.http.post(this.baseurl + "/add", appointment);
   }
 
@@ -22,7 +24,10 @@ export class AppointmentService {
     return this.http.get<Appointment[]>(`${this.baseurl}/all`);
   }
 
-  viewMyAppointment(id:number){
+  viewMyAppointment(id: number) {
     return this.http.get<Appointment>(`${this.baseurl}/${id}`);
+  }
+  viewAllTest(id: number) {
+    return this.http.get<DiagnosticTest[]>(this.baseurl + "/search/" + id);
   }
 }

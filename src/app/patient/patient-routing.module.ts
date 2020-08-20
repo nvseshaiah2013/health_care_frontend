@@ -27,7 +27,8 @@ const routes: Routes = [
       {path:'allTest',component:AllTestComponent, children:[{path:'testResult', component:TestResultComponent}]},
       {path:'vacantbeds',component:VacantBedComponent},
       {path:'testResult',component:TestResultComponent},
-      {path:'bed',component:ViewBedComponent}
+      {path:'bed',component:ViewBedComponent},
+      { path: '', pathMatch: 'full', redirectTo: '/patient/viewallappointments'}
     ]
   }
 ];

@@ -11,6 +11,7 @@ import { AllDiagnosticCenterComponent } from './all-diagnostic-center/all-diagno
 import { AddTestToCenterComponent } from './add-test-to-center/add-test-to-center.component';
 import { RemoveTestFromCenterComponent } from './remove-test-from-center/remove-test-from-center.component';
 import { WaitingPatientsComponent } from './waiting-patients/waiting-patients.component';
+import { ProcessAppointmentComponent } from './process-appointment/process-appointment.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,8 @@ const routes: Routes = [
       { path: 'addTestToCenter/:id',component:AddTestToCenterComponent},
       { path: 'removeTestFromCenter/:id',component:RemoveTestFromCenterComponent},
       { path : 'waiting-patients', component : WaitingPatientsComponent },
+      { path : 'appointments', component : ProcessAppointmentComponent},
+      { path : '', pathMatch : 'full', redirectTo : '/admin/addDiagnosticCenter'},
       { path : '**', component : AddDiagnosticCenterComponent }
   ]}
 ];
