@@ -28,11 +28,12 @@
             <label>Choose a Center:</label>
             <select name="centername" id="cid" placeholder="Diagnostic Center ID" name="cid" #cid="ngModel"
                 [(ngModel)]="appointment.diagnosticCenterId" required class="form-control" (change)="viewByTestName()">
-                <option value="1020">Center 1</option>
-                <option value="1021">Center 2</option>
-                <option value="1022">Center 3</option>
-                <option value="1023">Center 4</option>
-                <option value="1024">Center 5</option>
+                <option value="1087">Apollo Diagnostic Center,Koramangla Branch</option>
+                <option value="1088">Apollo Diagnostic Center, Malleshwaram Branch</option>
+                <option value="1089">Apollo Diagnostic Center, Nandi Hills Branch</option>
+                <option value="1085">Apollo Diagnostic Center, WhiteField Branch</option>
+                <option value="1086">Apollo Diagnostic Center,Electronic City Branch</option>
+                <option value="1100">Apollo Diagnostic Center, Yesvantpur Branch</option>
             </select>
             <div *ngIf="cid.invalid && cid.touched">
                 <div *ngIf="cid.errors.required">Center ID is mandatory</div>
