@@ -21,6 +21,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
     });
   }
 
+  logOut(){
+    localStorage.removeItem('token');
+  }
+
   ngOnDestroy() {
     this.loadSubscription.unsubscribe();
   }

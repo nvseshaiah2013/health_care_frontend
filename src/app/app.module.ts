@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
@@ -25,12 +25,14 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     JwtModule.forRoot({ 
       config : {
         tokenGetter : () => localStorage.getItem('token'),
-        whitelistedDomains : ['http://localhost:8090'],
-        blacklistedRoutes : ['http://localhost:8090/api/public/authenticate', 'http://localhost:8090/api/public/registerPatient'],
-        skipWhenExpired : false
+        whitelistedDomains : ["localhost:8090"],
+        blacklistedRoutes : ["http://localhost:8090/api/public/authenticate", "http://localhost:8090/api/public/registerPatient"],
+        skipWhenExpired : false,
+        throwNoTokenError : true
     }}),
     ToastrModule.forRoot()
   ],
